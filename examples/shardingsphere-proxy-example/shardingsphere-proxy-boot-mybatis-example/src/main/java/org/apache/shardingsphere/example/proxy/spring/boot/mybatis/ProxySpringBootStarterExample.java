@@ -50,12 +50,12 @@ public class ProxySpringBootStarterExample {
         exampleService.initEnvironment();
         exampleService.processSuccess();
         try {
-            exampleService.processFailure();
+            //exampleService.processFailure();
         } catch (final Exception ex) {
-            System.out.println(ex.getMessage());
-            exampleService.printData();
+            //System.out.println(ex.getMessage());
+            //exampleService.printData();
         } finally {
-            exampleService.cleanEnvironment();
+            //exampleService.cleanEnvironment();
         }
     }
     
