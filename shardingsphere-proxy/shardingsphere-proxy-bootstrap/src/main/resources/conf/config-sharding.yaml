@@ -106,7 +106,7 @@
 #  ds_0:
 #    url: jdbc:mysql://127.0.0.1:3306/demo_ds_0?serverTimezone=UTC&useSSL=false
 #    username: root
-#    password:
+#    password: root
 #    connectionTimeoutMilliseconds: 30000
 #    idleTimeoutMilliseconds: 60000
 #    maxLifetimeMilliseconds: 1800000
@@ -115,7 +115,7 @@
 #  ds_1:
 #    url: jdbc:mysql://127.0.0.1:3306/demo_ds_1?serverTimezone=UTC&useSSL=false
 #    username: root
-#    password:
+#    password: root
 #    connectionTimeoutMilliseconds: 30000
 #    idleTimeoutMilliseconds: 60000
 #    maxLifetimeMilliseconds: 1800000
@@ -151,7 +151,7 @@
 #      shardingAlgorithmName: database_inline
 #  defaultTableStrategy:
 #    none:
-#  
+#
 #  shardingAlgorithms:
 #    database_inline:
 #      type: INLINE
@@ -165,7 +165,7 @@
 #      type: INLINE
 #      props:
 #        algorithm-expression: t_order_item_${order_id % 2}
-#  
+#
 #  keyGenerators:
 #    snowflake:
 #      type: SNOWFLAKE
