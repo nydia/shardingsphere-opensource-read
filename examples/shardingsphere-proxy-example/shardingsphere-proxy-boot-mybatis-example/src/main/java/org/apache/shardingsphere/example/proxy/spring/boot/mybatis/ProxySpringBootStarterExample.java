@@ -47,7 +47,7 @@ public class ProxySpringBootStarterExample {
     
     private static void process(final ConfigurableApplicationContext applicationContext) throws SQLException {
         ExampleService exampleService = getExampleService(applicationContext);
-        exampleService.initEnvironment();
+        //exampleService.initEnvironment();
         exampleService.processSuccess();
         try {
             //exampleService.processFailure();
