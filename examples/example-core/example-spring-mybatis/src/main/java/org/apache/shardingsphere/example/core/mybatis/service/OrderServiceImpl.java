@@ -76,7 +76,7 @@ public class OrderServiceImpl implements ExampleService {
     @Transactional
     public void processSuccess() throws SQLException {
         System.out.println("-------------- Process Success Begin ---------------");
-        //List<Long> orderIds = insertData();
+        List<Long> orderIds = insertData();
         printData();
         //deleteData(orderIds);
         //printData();
