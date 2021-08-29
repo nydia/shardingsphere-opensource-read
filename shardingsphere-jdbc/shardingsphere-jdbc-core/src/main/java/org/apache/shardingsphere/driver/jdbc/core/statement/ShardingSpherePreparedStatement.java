@@ -353,7 +353,8 @@ public final class ShardingSpherePreparedStatement extends AbstractPreparedState
         }
         return result;
     }
-    
+
+    //获取真正的sql位置
     private ExecutionContext createExecutionContext() {
         LogicSQL logicSQL = createLogicSQL();
         SQLCheckEngine.check(logicSQL.getSqlStatementContext().getSqlStatement(), logicSQL.getParameters(), 

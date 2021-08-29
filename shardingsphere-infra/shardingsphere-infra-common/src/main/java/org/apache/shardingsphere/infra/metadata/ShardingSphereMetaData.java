@@ -33,7 +33,8 @@ public final class ShardingSphereMetaData {
     private final String name;
     
     private final ShardingSphereResource resource;
-    
+
+    //规则元数据
     private final ShardingSphereRuleMetaData ruleMetaData;
     
     private final ShardingSphereSchema schema;
