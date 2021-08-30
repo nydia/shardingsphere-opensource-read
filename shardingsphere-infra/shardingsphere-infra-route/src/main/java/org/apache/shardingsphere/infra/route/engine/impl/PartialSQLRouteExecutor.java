@@ -36,6 +36,7 @@ import java.util.Map.Entry;
 
 /**
  * Partial SQL route executor.
+ * 分片路由执行器
  */
 public final class PartialSQLRouteExecutor implements SQLRouteExecutor {
     

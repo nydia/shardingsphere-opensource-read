@@ -36,6 +36,7 @@ import java.util.stream.Collectors;
 
 /**
  * Route context.
+ * 路由上下文
  */
 @Getter
 public final class RouteContext {
