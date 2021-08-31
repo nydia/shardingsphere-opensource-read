@@ -144,7 +144,7 @@ public final class ShardingSpherePreparedStatement extends AbstractPreparedState
     }
     
     private ShardingSpherePreparedStatement(final ShardingSphereConnection connection, final String sql,
-                                            final int resultSetType, final int resultSetConcurrency, final int resultSetHoldability, final boolean returnGeneratedKeys) throws SQLException {
+                                                 final int resultSetType, final int resultSetConcurrency, final int resultSetHoldability, final boolean returnGeneratedKeys) throws SQLException {
         if (Strings.isNullOrEmpty(sql)) {
             throw new SQLException(SQLExceptionConstant.SQL_STRING_NULL_OR_EMPTY);
         }
@@ -159,6 +159,7 @@ public final class ShardingSpherePreparedStatement extends AbstractPreparedState
         parameterMetaData = new ShardingSphereParameterMetaData(sqlStatement);
         statementOption = returnGeneratedKeys ? new StatementOption(true) : new StatementOption(resultSetType, resultSetConcurrency, resultSetHoldability);
         JDBCExecutor jdbcExecutor = new JDBCExecutor(metaDataContexts.getExecutorEngine(), connection.isHoldTransaction());
+        //获取sql执行引擎
         driverJDBCExecutor = new DriverJDBCExecutor(connection.getSchemaName(), metaDataContexts, jdbcExecutor);
         rawExecutor = new RawExecutor(metaDataContexts.getExecutorEngine(), connection.isHoldTransaction(), metaDataContexts.getProps());
         // TODO Consider FederateRawExecutor
