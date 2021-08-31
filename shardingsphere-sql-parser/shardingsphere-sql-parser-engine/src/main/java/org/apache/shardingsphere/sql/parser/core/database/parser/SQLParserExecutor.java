@@ -50,7 +50,7 @@ public final class SQLParserExecutor {
         }
         return result.getRootNode();
     }
-    
+    //两阶段解析
     private ParseASTNode twoPhaseParse(final String sql) {
         DatabaseTypedSQLParserFacade sqlParserFacade = DatabaseTypedSQLParserFacadeRegistry.getFacade(databaseType);
         SQLParser sqlParser = SQLParserFactory.newInstance(sql, sqlParserFacade.getLexerClass(), sqlParserFacade.getParserClass());
