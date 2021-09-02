@@ -33,6 +33,7 @@ import java.util.List;
 
 /**
  * SQL rewrite context decorator for shadow.
+ * 影子压测sql改下装饰器
  */
 public final class ShadowSQLRewriteContextDecorator implements SQLRewriteContextDecorator<ShadowRule> {
     

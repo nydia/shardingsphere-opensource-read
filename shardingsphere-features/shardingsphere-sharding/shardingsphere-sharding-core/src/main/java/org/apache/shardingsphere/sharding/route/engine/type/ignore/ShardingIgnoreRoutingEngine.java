@@ -23,6 +23,7 @@ import org.apache.shardingsphere.sharding.rule.ShardingRule;
 
 /**
  * Sharding ignore routing engine.
+ * 直接路由 hint方式
  */
 public final class ShardingIgnoreRoutingEngine implements ShardingRouteEngine {
     

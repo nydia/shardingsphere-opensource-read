@@ -25,6 +25,7 @@ import java.util.Map;
 
 /**
  * Route SQL rewrite result.
+ * 对应5.0.0-beta 官网的 正确性改写 返回结果
  */
 @RequiredArgsConstructor
 @Getter

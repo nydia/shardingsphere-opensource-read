@@ -24,6 +24,7 @@ import org.apache.shardingsphere.infra.route.context.RouteContext;
 
 /**
  * SQL rewrite context decorator.
+ * sql改写上下文装饰器
  *
  * @param <T> type of rule
  */

@@ -24,6 +24,7 @@ import java.util.List;
 
 /**
  * SQL rewrite unit.
+ * sql改写单元（类似于实体）
  */
 @RequiredArgsConstructor
 @Getter

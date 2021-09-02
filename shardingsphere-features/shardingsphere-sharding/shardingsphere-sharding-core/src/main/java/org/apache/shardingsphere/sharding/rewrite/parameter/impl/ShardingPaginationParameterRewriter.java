@@ -31,6 +31,7 @@ import java.util.List;
 
 /**
  * Sharding pagination parameter rewriter.
+ * 分片分页参数改写
  */
 @Setter
 public final class ShardingPaginationParameterRewriter implements ParameterRewriter<SelectStatementContext>, RouteContextAware {

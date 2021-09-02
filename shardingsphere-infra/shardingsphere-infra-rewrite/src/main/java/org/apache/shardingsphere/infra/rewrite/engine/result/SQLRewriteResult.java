@@ -19,6 +19,7 @@ package org.apache.shardingsphere.infra.rewrite.engine.result;
 
 /**
  * SQL rewrite result.
+ * sql改写返回结果
  */
 public interface SQLRewriteResult {
 }

@@ -22,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Generic SQL rewrite result.
+ * 对应5.0.0-beta 官网的 优化改写 返回结果
  */
 @RequiredArgsConstructor
 @Getter

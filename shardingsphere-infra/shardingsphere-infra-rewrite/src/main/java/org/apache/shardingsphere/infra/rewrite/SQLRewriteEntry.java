@@ -46,7 +46,8 @@ public final class SQLRewriteEntry {
     private final ShardingSphereSchema schema;
     
     private final ConfigurationProperties props;
-    
+
+    //sql改写装饰器
     @SuppressWarnings("rawtypes")
     private final Map<ShardingSphereRule, SQLRewriteContextDecorator> decorators;
     
@@ -66,6 +67,7 @@ public final class SQLRewriteEntry {
      * @return route unit and SQL rewrite result map
      */
     public SQLRewriteResult rewrite(final String sql, final List<Object> parameters, final SQLStatementContext<?> sqlStatementContext, final RouteContext routeContext) {
+        //获取sql改写的上下文：参数为sql，
         SQLRewriteContext sqlRewriteContext = createSQLRewriteContext(sql, parameters, sqlStatementContext, routeContext);
         return routeContext.getRouteUnits().isEmpty()
                 ? new GenericSQLRewriteEngine().rewrite(sqlRewriteContext) : new RouteSQLRewriteEngine().rewrite(sqlRewriteContext, routeContext);

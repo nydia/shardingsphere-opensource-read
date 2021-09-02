@@ -31,6 +31,7 @@ import java.util.List;
 
 /**
  * Sharding generated key insert value parameter rewriter.
+ * 分片主键参数重写
  */
 @Setter
 public final class ShardingGeneratedKeyInsertValueParameterRewriter implements ParameterRewriter<InsertStatementContext> {

@@ -36,6 +36,7 @@ import java.util.Map;
 
 /**
  * Route SQL rewrite engine.
+ * 正确改写结果
  */
 public final class RouteSQLRewriteEngine {
     

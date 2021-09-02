@@ -30,6 +30,7 @@ import org.apache.shardingsphere.sharding.rule.ShardingRule;
 
 /**
  * SQL rewrite context decorator for sharding.
+ * 分片sql重写上下文装饰器
  */
 @Setter
 public final class ShardingSQLRewriteContextDecorator implements SQLRewriteContextDecorator<ShardingRule> {

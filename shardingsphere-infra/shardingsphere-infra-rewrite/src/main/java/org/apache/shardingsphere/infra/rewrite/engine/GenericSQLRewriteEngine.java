@@ -24,6 +24,7 @@ import org.apache.shardingsphere.infra.rewrite.sql.impl.DefaultSQLBuilder;
 
 /**
  * Generic SQL rewrite engine.
+ * 优化改写引擎
  */
 public final class GenericSQLRewriteEngine {
     

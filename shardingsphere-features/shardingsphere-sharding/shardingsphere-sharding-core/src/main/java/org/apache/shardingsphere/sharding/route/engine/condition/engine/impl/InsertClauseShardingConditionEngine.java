@@ -48,6 +48,7 @@ import java.util.stream.IntStream;
 
 /**
  * Sharding condition engine for insert clause.
+ * 分片插入场景的条件引擎
  */
 @RequiredArgsConstructor
 public final class InsertClauseShardingConditionEngine implements ShardingConditionEngine<InsertStatementContext> {

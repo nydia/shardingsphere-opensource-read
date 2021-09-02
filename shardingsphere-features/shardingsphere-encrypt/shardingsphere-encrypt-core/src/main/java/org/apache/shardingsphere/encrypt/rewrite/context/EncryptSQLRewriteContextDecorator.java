@@ -29,6 +29,7 @@ import org.apache.shardingsphere.infra.route.context.RouteContext;
 
 /**
  * SQL rewrite context decorator for encrypt.
+ * 加解密sql改下装饰器
  */
 public final class EncryptSQLRewriteContextDecorator implements SQLRewriteContextDecorator<EncryptRule> {
     
