@@ -60,16 +60,21 @@ public abstract class AbstractExecutionPrepareEngine<T> implements ExecutionPrep
     @Override
     public final ExecutionGroupContext<T> prepare(final RouteContext routeContext, final Collection<ExecutionUnit> executionUnits) throws SQLException {
         Collection<ExecutionGroup<T>> result = new LinkedList<>();
+        // executionUnits 执行结果集
         for (Entry<String, List<SQLUnit>> entry : aggregateSQLUnitGroups(executionUnits).entrySet()) {
             String dataSourceName = entry.getKey();
             List<SQLUnit> sqlUnits = entry.getValue();
+            //获取执行分组
             List<List<SQLUnit>> sqlUnitGroups = group(sqlUnits);
+            //根据配置的每个查询的最大链接数来决定使用哪种连接方式
             ConnectionMode connectionMode = maxConnectionsSizePerQuery < sqlUnits.size() ? ConnectionMode.CONNECTION_STRICTLY : ConnectionMode.MEMORY_STRICTLY;
+            // 下面的 group 根据使用的连接模式进行  结果集分组
             result.addAll(group(dataSourceName, sqlUnitGroups, connectionMode));
         }
         return decorate(routeContext, result);
     }
-    
+
+    // maxConnectionSizePerQuery 即可，该参数表示一次查询时每个数据库所允许使用的最大连接数。
     private List<List<SQLUnit>> group(final List<SQLUnit> sqlUnits) {
         int desiredPartitionSize = Math.max(0 == sqlUnits.size() % maxConnectionsSizePerQuery ? sqlUnits.size() / maxConnectionsSizePerQuery : sqlUnits.size() / maxConnectionsSizePerQuery + 1, 1);
         return Lists.partition(sqlUnits, desiredPartitionSize);

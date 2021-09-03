@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * JDBC prepared statement execution unit builder.
  */
-public final class PreparedStatementExecutionUnitBuilder implements JDBCExecutionUnitBuilder {
+    public final class PreparedStatementExecutionUnitBuilder implements JDBCExecutionUnitBuilder {
     
     @Override
     public JDBCExecutionUnit build(final ExecutionUnit executionUnit, final ExecutorJDBCManager executorManager,

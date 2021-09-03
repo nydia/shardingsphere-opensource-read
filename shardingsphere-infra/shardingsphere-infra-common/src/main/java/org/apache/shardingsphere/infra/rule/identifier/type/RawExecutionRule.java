@@ -19,6 +19,7 @@ package org.apache.shardingsphere.infra.rule.identifier.type;
 
 /**
  * Raw execution rule.
+ * 原生sql执行规则
  */
 public interface RawExecutionRule {
 }

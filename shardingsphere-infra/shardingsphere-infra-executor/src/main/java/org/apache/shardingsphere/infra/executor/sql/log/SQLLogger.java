@@ -58,6 +58,10 @@ public final class SQLLogger {
             dataSourceNames.add(each.getDataSourceName());
         }
         log("Actual SQL(simple): {} ::: {}", dataSourceNames, executionUnits.size());
+
+
+
+
     }
     
     private static void logNormalMode(final Collection<ExecutionUnit> executionUnits) {

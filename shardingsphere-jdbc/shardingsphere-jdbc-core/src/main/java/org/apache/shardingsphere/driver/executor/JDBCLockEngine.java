@@ -79,10 +79,13 @@ public final class JDBCLockEngine {
             ShardingSphereLock lock = metaDataContexts.getLock().get();
             try {
                 if (sqlStatement instanceof DDLStatement) {
+                    // 锁注数据源
                     tryTableLock(lock, sqlStatementContext.getTablesContext().getTableNames());
                 } else if (sqlStatement instanceof DMLStatement && !(sqlStatement instanceof SelectStatement)) {
+                    //检查数据源锁
                     checkTableLock(lock, sqlStatementContext.getTablesContext().getTableNames());
                 }
+                //执行阶段开始实行
                 return doExecute(executionGroupContext, routeUnits, callback, sqlStatement);
             } finally {
                 if (!lockNames.isEmpty()) {
@@ -90,6 +93,7 @@ public final class JDBCLockEngine {
                 }
             }
         }
+        //执行阶段开始实行
         return doExecute(executionGroupContext, routeUnits, callback, sqlStatement);
     }
     

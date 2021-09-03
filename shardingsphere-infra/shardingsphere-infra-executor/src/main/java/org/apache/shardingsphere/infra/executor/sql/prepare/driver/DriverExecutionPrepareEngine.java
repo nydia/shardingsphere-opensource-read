@@ -37,6 +37,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Driver execution prepare engine.
+ * 驱动执行准备阶段 预执行引擎
  * 
  * @param <T> type of driver execution unit
  * @param <C> type of resource connection
@@ -68,14 +69,17 @@ public final class DriverExecutionPrepareEngine<T extends DriverExecutionUnit<?>
     @Override
     protected List<ExecutionGroup<T>> group(final String dataSourceName, final List<List<SQLUnit>> sqlUnitGroups, final ConnectionMode connectionMode) throws SQLException {
         List<ExecutionGroup<T>> result = new LinkedList<>();
+        //准备阶段： 获取执行连接
         List<C> connections = executorDriverManager.getConnections(dataSourceName, sqlUnitGroups.size(), connectionMode);
         int count = 0;
         for (List<SQLUnit> each : sqlUnitGroups) {
+            // createExecutionGroup 创建执行单元
             result.add(createExecutionGroup(dataSourceName, each, connections.get(count++), connectionMode));
         }
         return result;
     }
-    
+
+    //创建执行组
     @SuppressWarnings("unchecked")
     private ExecutionGroup<T> createExecutionGroup(final String dataSourceName, final List<SQLUnit> sqlUnits, final C connection, final ConnectionMode connectionMode) throws SQLException {
         List<T> result = new LinkedList<>();
