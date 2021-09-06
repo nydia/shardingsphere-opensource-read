@@ -33,7 +33,8 @@ import java.util.Collection;
 public final class ExecutionContext {
     
     private final LogicSQL logicSQL;
-    
+
+    //执行单元
     private final Collection<ExecutionUnit> executionUnits;
     
     private final RouteContext routeContext;
