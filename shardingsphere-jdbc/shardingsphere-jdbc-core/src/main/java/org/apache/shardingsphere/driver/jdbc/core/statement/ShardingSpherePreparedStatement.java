@@ -284,6 +284,7 @@ public final class ShardingSpherePreparedStatement extends AbstractPreparedState
             ExecutionGroupContext<JDBCExecutionUnit> executionGroupContext = createExecutionGroupContext();
             //执行阶段
             cacheStatements(executionGroupContext.getInputGroups());
+            //createExecuteCallback() 回调方法
             return driverJDBCExecutor.execute(executionGroupContext,
                     executionContext.getLogicSQL(), executionContext.getRouteContext().getRouteUnits(), createExecuteCallback());
         } finally {

@@ -79,10 +79,12 @@ public final class ExecutorEngine implements AutoCloseable {
             return Collections.emptyList();
         }
         //串行执行 或者并行执行
+        // 这里并行和串行的区别是并行用了线程池，串行没用
         return serial ? serialExecute(executionGroupContext.getInputGroups().iterator(), firstCallback, callback)
                 : parallelExecute(executionGroupContext.getInputGroups().iterator(), firstCallback, callback);
     }
-    
+
+    //串行执行，
     private <I, O> List<O> serialExecute(final Iterator<ExecutionGroup<I>> executionGroups, final ExecutorCallback<I, O> firstCallback, final ExecutorCallback<I, O> callback) throws SQLException {
         ExecutionGroup<I> firstInputs = executionGroups.next();
         List<O> result = new LinkedList<>(syncExecute(firstInputs, null == firstCallback ? callback : firstCallback));
