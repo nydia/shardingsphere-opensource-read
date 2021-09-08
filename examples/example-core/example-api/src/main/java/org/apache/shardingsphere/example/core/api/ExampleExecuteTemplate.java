@@ -25,10 +25,11 @@ public final class ExampleExecuteTemplate {
     
     public static void run(final ExampleService exampleService) throws SQLException {
         try {
-            exampleService.initEnvironment();
+            //exampleService.initEnvironment();
             exampleService.processSuccess();
         } finally {
-            exampleService.cleanEnvironment();
+            //测试时候可以先不删除表
+            //exampleService.cleanEnvironment();
         }
     }
     
