@@ -21,6 +21,7 @@ import org.apache.shardingsphere.sql.parser.api.visitor.ASTNode;
 
 /**
  * SQL statement.
+ * sql 实例，对应与java mysql驱动里面的 statement (用于执行静态 SQL 语句并返回它所生成结果的对象)
  */
 public interface SQLStatement extends ASTNode {
     

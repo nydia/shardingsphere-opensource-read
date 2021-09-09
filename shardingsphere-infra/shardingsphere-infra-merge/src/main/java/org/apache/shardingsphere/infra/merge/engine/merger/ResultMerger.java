@@ -27,6 +27,7 @@ import java.util.List;
 
 /**
  * Query results merger.
+ * merge类
  */
 public interface ResultMerger {
     
