@@ -351,7 +351,8 @@ public final class ShardingSpherePreparedStatement extends AbstractPreparedState
         }
         return result;
     }
-    
+
+    //把从java.sql.Statemnt 里面执行sql获取到的 ResultSet 转为ShardingSphere的
     private List<QueryResult> getQueryResults(final List<ResultSet> resultSets) throws SQLException {
         List<QueryResult> result = new ArrayList<>(resultSets.size());
         for (ResultSet each : resultSets) {

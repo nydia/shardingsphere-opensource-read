@@ -34,6 +34,7 @@ import java.util.Calendar;
 
 /**
  * JDBC query result for stream loading.
+ * jdbc 查询结构流式读取
  */
 public final class JDBCStreamQueryResult extends AbstractStreamQueryResult {
     
