@@ -34,7 +34,7 @@ public final class JDBCQueryResultMetaData implements QueryResultMetaData {
     
     @Override
     public int getColumnCount() throws SQLException {
-        return resultSetMetaData.getColumnCount();
+        return resultSetMetaData.getColumnCount(); //resultSetMetaData -> ResultSetMetaData
     }
     
     @Override

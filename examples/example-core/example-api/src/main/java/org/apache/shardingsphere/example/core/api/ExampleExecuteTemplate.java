@@ -28,6 +28,7 @@ public final class ExampleExecuteTemplate {
             //exampleService.initEnvironment();
             exampleService.processSuccess();
         } finally {
+            //测试时候可以先不删除表
             //exampleService.cleanEnvironment();
         }
     }
