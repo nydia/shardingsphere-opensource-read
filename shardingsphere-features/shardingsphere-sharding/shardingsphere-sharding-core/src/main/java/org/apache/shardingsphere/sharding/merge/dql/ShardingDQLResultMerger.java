@@ -46,6 +46,7 @@ import java.util.TreeMap;
 
 /**
  * DQL result merger for Sharding.
+ * 查询语句的结果归并
  */
 @RequiredArgsConstructor
 public final class ShardingDQLResultMerger implements ResultMerger {
@@ -74,16 +75,23 @@ public final class ShardingDQLResultMerger implements ResultMerger {
     
     private MergedResult build(final List<QueryResult> queryResults, final SelectStatementContext selectStatementContext,
                                final Map<String, Integer> columnLabelIndexMap, final ShardingSphereSchema schema) throws SQLException {
+        //是否分组
         if (isNeedProcessGroupBy(selectStatementContext)) {
+            //判断走流式归并还是内存归并
             return getGroupByMergedResult(queryResults, selectStatementContext, columnLabelIndexMap, schema);
         }
+        //是否去重（聚合）
         if (isNeedProcessDistinctRow(selectStatementContext)) {
             setGroupByForDistinctRow(selectStatementContext);
+            //判断走流式归并还是内存归并
             return getGroupByMergedResult(queryResults, selectStatementContext, columnLabelIndexMap, schema);
         }
+        //是否排序
         if (isNeedProcessOrderBy(selectStatementContext)) {
+            //流式归并 里面的排序归并
             return new OrderByStreamMergedResult(queryResults, selectStatementContext, schema);
         }
+        //遍历归并
         return new IteratorStreamMergedResult(queryResults);
     }
     
@@ -105,6 +113,7 @@ public final class ShardingDQLResultMerger implements ResultMerger {
     
     private MergedResult getGroupByMergedResult(final List<QueryResult> queryResults, final SelectStatementContext selectStatementContext,
                                                 final Map<String, Integer> columnLabelIndexMap, final ShardingSphereSchema schema) throws SQLException {
+        //分组归并： 根据分组和排序的字段是否相同 分别走流式归并和内存归并
         return selectStatementContext.isSameGroupByAndOrderByItems()
                 ? new GroupByStreamMergedResult(columnLabelIndexMap, queryResults, selectStatementContext, schema)
                 : new GroupByMemoryMergedResult(queryResults, selectStatementContext, schema);

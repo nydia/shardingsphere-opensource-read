@@ -227,7 +227,9 @@ public final class SelectStatementContext extends CommonSQLStatementContext<Sele
      *
      * @return group by and order by sequence is same or not
      */
+    //判断分组和排序的字段以及排序的类型是否一致
     public boolean isSameGroupByAndOrderByItems() {
+        //这里是用分组的内容和排序的内容做对比，相同就返回true(走流式归并)，不同就返回false（走内存归并）
         return !groupByContext.getItems().isEmpty() && groupByContext.getItems().equals(orderByContext.getItems());
     }
     
